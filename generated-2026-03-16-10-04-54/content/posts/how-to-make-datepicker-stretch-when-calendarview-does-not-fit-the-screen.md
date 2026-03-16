@@ -1,0 +1,70 @@
+---
+_elasticsearch_data_sharing_indexed_on: "2024-11-18 13:55:37"
+_last_editor_used_jetpack: block-editor
+_oembed_50e3277b9822424b70700f0bb327db83: '{{unknown}}'
+_oembed_470d8bca35038703ed6b0810ea980c98: '{{unknown}}'
+_publicize_job_id: "63770066405"
+author: gmirchev90
+categories:
+  - android
+date: "2021-10-04T19:53:58+00:00"
+guid: https://georgimirchev.com/?p=612
+parent_post_id: null
+post_id: "612"
+summary: In Android we have to deal with both big screen and small screens, tablets, watches, TVs and many other devices. In our case, we had a device with a 3.2" display and other one with 5" display. And on both of them we show a DatePicker dialog to choose a date. And guess what? Especially for the current month of October, there was a small difference. Can you guess it in the screenshot below?
+tags:
+  - alertdialog
+  - calendarview
+  - datepicker
+timeline_notification: "1633377240"
+title: How to make DatePicker stretch when CalendarView does not fit the screen?
+url: /2021/10/04/how-to-make-datepicker-stretch-when-calendarview-does-not-fit-the-screen/
+
+---
+In Android we have to deal with both big screen and small screens, tablets, watches, TVs and many other devices. In our case, we had a device with a 3.2" display and other one with 5" display. And on both of them we show a DatePicker dialog to choose a date. And guess what? Especially for the current month of October, there was a small difference. Can you guess it in the screenshot below?
+
+{{< figure src="/wp-content/uploads/2021/10/image-3.png?w=1017" alt="" caption="" >}}
+
+I guess you already saw the difference. 31st of October is missing. If you don't remember that this month is 31 days, you could have actually skipped it at all. The reason why we don't see the 31st on the left side is because the DatePicker and dialogs overall are limited in size.
+
+## The issue
+
+Dialogs and DialogFragments are limited in height. They usually do not take up all the available space in terms of height and width. They have some paddings and also some distance from the top and bottom to make them better looking. And in the old times, up until now, there is a lot of code in Android XML that uses the **android:layout\_weight** property as you can see [here](https://android.googlesource.com/platform/frameworks/base/+/master/core/res/res/layout/alert_dialog.xml). It can be problematic in some cases where you want certain content to be visible on the screen.
+
+With the above case, it was really hard for me to understand why is CalendarView not scrollable and where the issue is. I tried reducing the size of the dates, the size of the title and the issue was kinda fixed but I couldn't get a decent looking 31st on the screen. That's why I decided to move to using a custom layout + AlertDialog rather than fighting this DatePickerFragment. And here is how it worked.
+
+## The solution
+
+The solution was to try to stretch the AlertDialog height as much as possible. As you can see, there is a lot of space at the top and bottom of the dialog that can be used. And I started looking into a solution.
+
+### Using a custom view
+
+I decided to use a custom layout with an alert dialog. Now that I wanted to stretch it manually, it just didn't make sense to keep the DatePickerDialogFragment. And using an AlertDialog inside a DialogFragment is very very easy.
+
+The custom view would contain:
+
+1. The CalendarView - it has a title that matches the one from the DatePickerDialog
+1. The buttons - Cancel and OK which are simple TextViews and I could style them by using the **style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"**. Job done.
+
+### Stretching the dialog in onLayoutChanged
+
+Adding a listener when layout changes for the dialog is quite simple. And there, we can make sure that our dialog has MATCH\_PARENT, MATCH\_PARENT in terms of width and height. Something like this:
+
+```
+alertDialog.window?.decorView?.addOnLayoutChangeListener { v, _, _, _, _, _, _, _, _ ->
+    dialog?.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+        ViewGroup.LayoutParams.MATCH_PARENT)
+}
+```
+
+### Make sure to stretch the dialog only if space is not enough
+
+I didn't need to stretch the dialog for devices that are big and have enough screen space. That's why I needed to detect whether a device has enough space or not. And what a bigger indicator than the CalendarView itself. If it matched or is higher than the AlertDialog height, this means the buttons are not visible and I need to make the dialog width and height - MATCH\_PARENT. Otherwise, keep them as they are.
+
+## The result
+
+{{< figure src="/wp-content/uploads/2021/10/135628256-a73d612a-24eb-414e-9ddd-a9919125c27f.png?w=1024" alt="" caption="" >}}
+
+## Show me the code
+
+<script src="https://gist.github.com/n0m0r3pa1n/73fd53243b11370752ef4098fac26fca.js"></script>

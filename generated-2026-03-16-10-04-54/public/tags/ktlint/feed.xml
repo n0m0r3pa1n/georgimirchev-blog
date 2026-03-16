@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ktlint on Make Things Happen</title>
+    <link>http://localhost:1313/tags/ktlint/</link>
+    <description>Recent content in Ktlint on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Oct 2022 08:49:16 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ktlint/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Local KtLint configuration for Android</title>
+      <link>http://localhost:1313/2022/10/28/local-ktlint-configuration-for-android/</link>
+      <pubDate>Fri, 28 Oct 2022 08:49:16 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=1006</guid> 
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pinterest/ktlint&#34;&gt;KtLint&lt;/a&gt; &amp;amp; &lt;a href=&#34;https://github.com/detekt/detekt&#34;&gt;Detekt&lt;/a&gt; are tools that help us keep our code formatted in the same way and sometimes even help us spot errors before they are actually merged to master or develop.&lt;/p&gt;
+&lt;p&gt;Most of the CI integrations already include a detekt step before the unit tests are run. To avoid waiting for the CI, you can easily integrate ktlint as part of Git hooks. So every time when you decide to commit, Git hooks run and ktlint analyzes the committed files and prevents you from pushing until you fix your errors.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

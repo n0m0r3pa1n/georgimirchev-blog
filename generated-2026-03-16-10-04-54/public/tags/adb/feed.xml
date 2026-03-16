@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Adb on Make Things Happen</title>
+    <link>http://localhost:1313/tags/adb/</link>
+    <description>Recent content in Adb on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 16:34:42 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/adb/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android adb server version (32) doesn’t match this client (Genymotion)</title>
+      <link>http://localhost:1313/2020/05/04/android-adb-server-version-32-doesnt-match-this-client-genymotion/</link>
+      <pubDate>Mon, 04 May 2020 16:34:42 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=221</guid> 
+      <description>&lt;p&gt;Probably you have seen this type of error when using Genymotion as the Android emulator on which you test your device. This is how the error looks like:&lt;/p&gt;
+&lt;p&gt;adb server version (32) doesn’t match this client (35); killing…&lt;br&gt;
+error: could not install *smartsocket* listener: Address already in use&lt;br&gt;
+ADB server didn’t ACK&lt;br&gt;
+\* failed to start daemon *&lt;/p&gt;
+&lt;p&gt;There is one simple thing that worked for me. I opened the Settings menu of Genymotion, then ADB tab and selected: Use custom android SDK tools and I set the path to the tools. By default Genymotion uses its built-in tools. After that killing all working emulators and starting them again makes everything  work.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

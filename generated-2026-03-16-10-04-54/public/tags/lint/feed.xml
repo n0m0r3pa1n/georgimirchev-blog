@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lint on Make Things Happen</title>
+    <link>http://localhost:1313/tags/lint/</link>
+    <description>Recent content in Lint on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 May 2024 06:49:31 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/lint/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding a custom lint rule to your Android project</title>
+      <link>http://localhost:1313/2024/05/16/adding-a-custom-lint-rule-to-your-android-project/</link>
+      <pubDate>Thu, 16 May 2024 06:49:31 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=2024</guid> 
+      <description>We had one issue where people tend to create adapter classes inside fragments as properties and then forget to clear them out in onDestroyView. This actually creates a memory leak due to the adapter very often holding references to objects that were already destroyed. To prevent this from happening, we decided to create a custom lint rule that detects if you have an adapter field in your fragment class and warns you that it should be part of onCreateView instead.</description>
+    </item>
+  </channel>
+</rss>

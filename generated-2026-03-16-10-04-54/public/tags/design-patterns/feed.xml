@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Design-Patterns on Make Things Happen</title>
+    <link>http://localhost:1313/tags/design-patterns/</link>
+    <description>Recent content in Design-Patterns on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 16:21:22 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/design-patterns/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Design Patterns – Books, tutorials &amp;amp; notes</title>
+      <link>http://localhost:1313/2020/05/04/design-patterns-books-tutorials-notes/</link>
+      <pubDate>Mon, 04 May 2020 16:21:22 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=197</guid> 
+      <description>&lt;h1 id=&#34;why-design-patterns&#34;&gt;Why design patterns?&lt;/h1&gt;
+&lt;p&gt;Well, this question is very simple. Because they will broaden your knowledge and make you enjoy programming again. They will remind it you that programming is a skillful art which requires constant research for a purpose. All of the patterns are extremely practical and easily applied to real world examples.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Mvp on Make Things Happen</title>
+    <link>http://localhost:1313/tags/mvp/</link>
+    <description>Recent content in Mvp on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 10:52:57 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mvp/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Thinking about Code Architecture &amp;amp; Object Oriented Programming</title>
+      <link>http://localhost:1313/2020/05/04/thinking-about-code-architecture-object-oriented-programming/</link>
+      <pubDate>Mon, 04 May 2020 10:52:57 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=113</guid> 
+      <description>&lt;h2 id=&#34;the-content&#34;&gt;The Content&lt;/h2&gt;
+&lt;p&gt;I recently got to watch several videos about architecture that got me a bit deeper into the topic and I decided to share my thoughts here. There first two videos are from Realm:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://academy.realm.io/posts/mvc-vs-mvp-vs-mvvm-vs-mvi-mobilization-moskala/&#34;&gt;MVC vs MVP vs MVVM vs MVI by Marcin Moskala&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://academy.realm.io/posts/android-architecture-components-considered-harmful-mobilization/&#34;&gt;Android Architecture Components Considered Harmful by Vasiliy Zukanov&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;They are mostly Android oriented but there are some general rules which are applicable to code architecture.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Applying Clean Architecture in Android</title>
+      <link>http://localhost:1313/2020/05/04/applying-clean-architecture-in-android/</link>
+      <pubDate>Mon, 04 May 2020 10:49:53 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=109</guid> 
+      <description>&lt;h2 id=&#34;short-intro&#34;&gt;Short Intro&lt;/h2&gt;
+&lt;p&gt;For 4 months now I have been implementing “clean architecture” in my current project. The project is huge, more than 17 Android developers work on it including me, so it is important to apply an architecture that works for all of us. I will not talk about what “clean architecture” is, but I will directly dive into the code and explain step by step the purpose of the layers that we have and what each layer is about.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

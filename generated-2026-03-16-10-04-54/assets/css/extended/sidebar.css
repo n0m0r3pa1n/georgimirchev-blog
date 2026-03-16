@@ -1,0 +1,139 @@
+/* ── Two-column layout: post list + sidebar ── */
+.list-with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 2rem;
+    align-items: start;
+}
+
+/* On narrow screens collapse to single column */
+@media (max-width: 900px) {
+    .list-with-sidebar {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        display: none; /* hide on mobile to keep it clean */
+    }
+}
+
+/* ── Sidebar container ── */
+.sidebar {
+    position: sticky;
+    top: calc(var(--header-height, 64px) + 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* ── Widget card ── */
+.sidebar-widget {
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+}
+
+.sidebar-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--secondary);
+    margin: 0 0 0.75rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Categories list ── */
+.sidebar-category-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.sidebar-category-list li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 0.88rem;
+    color: var(--primary);
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: background 0.15s;
+}
+
+.sidebar-category-list li a:hover {
+    background: var(--border);
+}
+
+/* ── Tag cloud ── */
+.sidebar-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sidebar-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    color: var(--primary);
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.sidebar-tag:hover {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+}
+
+/* ── Count badge (shared by categories + tags) ── */
+.sidebar-count {
+    font-size: 0.72rem;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+/* ── Per-post category line ── */
+.post-categories {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+}
+
+.post-categories-label {
+    color: var(--secondary);
+}
+
+.post-category {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: capitalize;
+    transition: background 0.15s, color 0.15s;
+}
+
+.post-category:hover {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+}

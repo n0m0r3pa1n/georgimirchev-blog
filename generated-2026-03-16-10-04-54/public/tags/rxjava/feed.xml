@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Rxjava on Make Things Happen</title>
+    <link>http://localhost:1313/tags/rxjava/</link>
+    <description>Recent content in Rxjava on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 13 Feb 2021 12:32:42 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/rxjava/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>When can RxJava become a pain in the ass?</title>
+      <link>http://localhost:1313/2021/02/13/when-can-rxjava-become-a-pain-in-the-ass/</link>
+      <pubDate>Sat, 13 Feb 2021 12:32:42 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=363</guid> 
+      <description>The idea of this post is really simple. If you don&amp;rsquo;t know the details around RxJava - don&amp;rsquo;t implement it in a project which has the idea of earning money.</description>
+    </item>
+    <item>
+      <title>Detecting network change with ConnectivityManager &amp;amp; RxJava</title>
+      <link>http://localhost:1313/2021/02/12/detecting-network-change-with-connectivitymanager-rxjava/</link>
+      <pubDate>Fri, 12 Feb 2021 21:10:34 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=359</guid> 
+      <description>Wonder how to check the network connectivity in Android? There is a new API that you can use but there aren&amp;rsquo;t many tutorials how to do it. Here is our simple way:</description>
+    </item>
+    <item>
+      <title>Android Oauth2 token refresh mechanism - OkHttp vs RxJava layering</title>
+      <link>http://localhost:1313/2021/02/12/android-token-refresh-mechanism-okhttp-vs-rxjava-layering/</link>
+      <pubDate>Fri, 12 Feb 2021 20:50:43 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=339</guid> 
+      <description>&lt;h2 id=&#34;the-rxjava-approach&#34;&gt;The RxJava approach&lt;/h2&gt;
+&lt;p&gt;I am currently working on an app where the devs before me took this strange decision in regard to the refresh token mechanism - have a single entry point of the app which is called every time whenever you need to have a fresh token. What I mean is this:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Execute an RxJava observable only once in a given time period</title>
+      <link>http://localhost:1313/2020/12/17/execute-an-rxjava-observable-only-once-in-a-given-time-period/</link>
+      <pubDate>Thu, 17 Dec 2020 01:58:47 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=314</guid> 
+      <description>&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;Each Android app has an authentication mechanism or at least most of them do. What this auth mechanism does is that it refreshes an access token using a refresh token every N minutes. In our case these N minutes are 7. And now the question is: How do I implement this?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tricky parts when implementing unit tests for Android in Kotlin</title>
+      <link>http://localhost:1313/2020/11/12/tricky-parts-when-implementing-unit-tests-for-android-in-kotlin/</link>
+      <pubDate>Thu, 12 Nov 2020 10:21:30 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=295</guid> 
+      <description>&lt;h2 id=&#34;testing-data-classes-in-kotlin&#34;&gt;Testing data classes in Kotlin&lt;/h2&gt;
+&lt;p&gt;As we all know, data classes are final by default on Kotlin and if you try to use Mockito and mock such a class, you will get an exception. What you need to do is add this file:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Race conditions in unit tests with RxJava when using TestScheduler</title>
+      <link>http://localhost:1313/2020/08/12/race-conditions-in-unit-tests-with-rxjava-when-using-testscheduler/</link>
+      <pubDate>Wed, 12 Aug 2020 06:13:14 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=272</guid> 
+      <description>I recently had a very strange bug when it comes to using a BehaviorSubject inside the object that I am testing.</description>
+    </item>
+    <item>
+      <title>RxJava toList – completes only after onComplete is called</title>
+      <link>http://localhost:1313/2020/05/04/rxjava-tolist-completes-only-after-oncomplete-is-called/</link>
+      <pubDate>Mon, 04 May 2020 11:21:54 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=131</guid> 
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; mGetActiveHubUpdatesInteractor.getActiveHubUpdates()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .filter(Optional::isPresent)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .firstOrError()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .map(Optional::get)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .flatMap(activeHub -&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        mGetActiveHubEventsInteractor.getActiveHubEvents(activeHub, startTime,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                endTime))
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .flattenAsObservable(list -&amp;gt; list)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .map(mActiveHubEventUiMapper::toUiActiveHubEvent)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .toList()
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                .subscribe(this::populateEvents, this::handleError);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>.blockingGet &amp;amp; AndroidSchedulers.mainThread() make the app stuck</title>
+      <link>http://localhost:1313/2020/05/04/blockingget-androidschedulers-mainthread-make-the-app-stuck/</link>
+      <pubDate>Mon, 04 May 2020 10:43:12 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=106</guid> 
+      <description>Recently, I had a very strange problem to debug. I had the following interactor:</description>
+    </item>
+    <item>
+      <title>RxJava &amp;amp; LiveData combined error handling</title>
+      <link>http://localhost:1313/2020/05/04/example-post/</link>
+      <pubDate>Mon, 04 May 2020 07:30:30 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchevcom.wordpress.com/?p=11</guid> 
+      <description>Using RxJava with the architecture components from Google in the &lt;a href=&#34;https://web.archive.org/web/20191005041357/https://github.com/n0m0r3pa1n/bulgarian_history_revisited&#34;&gt;latest project&lt;/a&gt; that I was working on, it made me think how does error handling fit with the LiveData and can you keep the RxJava error handling which I find quite nice.</description>
+    </item>
+  </channel>
+</rss>

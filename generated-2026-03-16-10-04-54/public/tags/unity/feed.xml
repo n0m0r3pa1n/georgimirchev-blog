@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Unity on Make Things Happen</title>
+    <link>http://localhost:1313/tags/unity/</link>
+    <description>Recent content in Unity on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 09:30:56 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/unity/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add application to launcher in Ubuntu 16.04</title>
+      <link>http://localhost:1313/2020/05/04/add-application-to-launcher-in-ubuntu-16-04/</link>
+      <pubDate>Mon, 04 May 2020 09:30:56 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=75</guid> 
+      <description>&lt;p&gt;Just use a program called alacarte:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install alacarte&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Click on the New Item button, write the command &amp;amp; name of the app, choose a logo if you want and you will see it appearing shortly in the Unity launcher by typing the name. Otherwise, you will have to create a *.desktop file and add it to .local/share/applications which I couldn’t make it work after spending a couple of hours.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

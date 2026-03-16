@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pages on Make Things Happen</title>
+    <link>http://localhost:1313/pages/</link>
+    <description>Recent content in Pages on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 07:30:35 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/pages/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Knowledge base</title>
+      <link>http://localhost:1313/blog-2/</link>
+      <pubDate>Mon, 04 May 2020 07:30:35 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchevcom.wordpress.com/?page_id=6</guid> 
+      <description>&lt;hr&gt;
+&lt;h3 id=&#34;follow-my-blog&#34;&gt;Follow My Blog&lt;/h3&gt;
+&lt;p&gt;Get new content delivered directly to your inbox.&lt;/p&gt;
+&lt;p&gt;[jetpack_subscription_form show_only_email_and_button=&amp;ldquo;true&amp;rdquo; custom_background_button_color=&amp;ldquo;undefined&amp;rdquo; custom_text_button_color=&amp;ldquo;undefined&amp;rdquo; submit_button_text=&amp;ldquo;Subscribe&amp;rdquo; submit_button_classes=&amp;ldquo;undefined&amp;rdquo; show_subscribers_total=&amp;ldquo;false&amp;rdquo; ]&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Mon, 04 May 2020 07:30:34 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchevcom.wordpress.com/?page_id=7</guid> 
+      <description>&lt;p&gt;Don&amp;rsquo;t hesitate to reach out and contact me! Let&amp;rsquo;s talk and share knowledge!&lt;/p&gt;
+&lt;h2 id=&#34;get-in-touch&#34;&gt;Get in Touch&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;mailto:gmirchev90@gmail.com&#34;&gt;gmirchev90@gmail.com&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 04 May 2020 07:30:33 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchevcom.wordpress.com/?page_id=8</guid> 
+      <description>&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;http://localhost:1313/wp-content/uploads/2020/05/img%5F20181103%5F124716.jpg?w=1024&#34;/&gt; 
+&lt;/figure&gt;
+
+&lt;p&gt;at peak Malyovitsa&lt;/p&gt;
+&lt;h2 id=&#34;this-is-the-sixth-time-i-edit-this-page-and-it-is-always-hard-to-write-it-in-such-way-it-would-not-require-editing-for-long-period-of-time-because-things-change-so-fast&#34;&gt;&lt;em&gt;This is the sixth time I edit this page and it is always hard to write it in such way it would not require editing for long period of time because things change so fast.&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;My name is Georgi Mirchev, born on 09 November 1990 (you can calculate how old I am). I live in a country called Bulgaria and which I love a lot. You can find it in the south-eastern part of Europe and we are also part of the European Union. Currently, I work in our capital called Sofia, but I go to my home city very often to walk my two beagles.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

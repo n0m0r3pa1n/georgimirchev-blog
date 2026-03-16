@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ai on Make Things Happen</title>
+    <link>http://localhost:1313/tags/ai/</link>
+    <description>Recent content in Ai on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 23 Nov 2025 17:01:27 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ai/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cursor on Android: Where it struggles and how to make it useful</title>
+      <link>http://localhost:1313/2025/11/23/cursor-on-android-where-it-struggles-and-how-to-make-it-useful/</link>
+      <pubDate>Sun, 23 Nov 2025 17:01:27 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=2592</guid> 
+      <description>AI is here, and the best we can do now is take a look at it and not ignore it. I have been using Cursor with Claude for the past six months, both on personal and work projects of various sizes, and I can tell for sure that it handles some tasks with ease, while others are a huge struggle until you intervene and give the right direction. But even with that in mind, it still manages to save tons of hours of writing templates and sometimes makes me wonder whether my brain is working less effectively just because I can ask it to figure out a given problem for me. But here are the major problems that I experienced with it until now.</description>
+    </item>
+  </channel>
+</rss>

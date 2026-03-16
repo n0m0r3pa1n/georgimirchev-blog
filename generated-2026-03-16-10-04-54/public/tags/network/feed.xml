@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Network on Make Things Happen</title>
+    <link>http://localhost:1313/tags/network/</link>
+    <description>Recent content in Network on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Feb 2021 21:10:34 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/network/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Detecting network change with ConnectivityManager &amp;amp; RxJava</title>
+      <link>http://localhost:1313/2021/02/12/detecting-network-change-with-connectivitymanager-rxjava/</link>
+      <pubDate>Fri, 12 Feb 2021 21:10:34 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=359</guid> 
+      <description>Wonder how to check the network connectivity in Android? There is a new API that you can use but there aren&amp;rsquo;t many tutorials how to do it. Here is our simple way:</description>
+    </item>
+  </channel>
+</rss>

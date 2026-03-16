@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Spinner on Make Things Happen</title>
+    <link>http://localhost:1313/tags/spinner/</link>
+    <description>Recent content in Spinner on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 12:59:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/spinner/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spinner in Toolbar – How to change the selected item text color?</title>
+      <link>http://localhost:1313/2020/05/04/spinner-in-toolbar-how-to-change-the-selected-item-text-color/</link>
+      <pubDate>Mon, 04 May 2020 12:59:33 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=161</guid> 
+      <description>That bastard drove me nuts today. I do not understand why is it so hard to fix. I want the text to be white. After 2 hours of reading useless posts, I found a solution working for me.</description>
+    </item>
+  </channel>
+</rss>

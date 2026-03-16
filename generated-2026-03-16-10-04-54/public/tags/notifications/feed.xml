@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Notifications on Make Things Happen</title>
+    <link>http://localhost:1313/tags/notifications/</link>
+    <description>Recent content in Notifications on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 05 May 2020 12:44:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/notifications/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android Notification White Square Icon</title>
+      <link>http://localhost:1313/2020/05/05/android-notification-white-square-icon/</link>
+      <pubDate>Tue, 05 May 2020 12:44:33 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=244</guid> 
+      <description>We have all seen the white square at the top type of a notification in the notification bar.</description>
+    </item>
+    <item>
+      <title>Test push notifications on Android without a server</title>
+      <link>http://localhost:1313/2020/05/04/test-push-notifications-on-android-without-a-server/</link>
+      <pubDate>Mon, 04 May 2020 09:29:16 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=71</guid> 
+      <description>&lt;h2 id=&#34;how-i-used-to-do-it&#34;&gt;How I used to do it&lt;/h2&gt;
+&lt;p&gt;The biggest problem I have with push notifications and especially &lt;a href=&#34;https://web.archive.org/web/20190917083845/https://developers.google.com/cloud-messaging/&#34;&gt;GCM&lt;/a&gt; is testing them. Every time I want to test a notification, I would create a sample project in Google Developers Console, use the JSON there and then use &lt;a href=&#34;https://web.archive.org/web/20190917083845/https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=bg&#34;&gt;Postman&lt;/a&gt; to send HTTP requests to the device, after obtaining the device registration id and the token for the project.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>TransactionTooLargeException when using NotificationManager.notify on Samsung devices</title>
+      <link>http://localhost:1313/2020/05/04/transactiontoolargeexception-when-using-notificationmanager-notify-on-samsung-devices/</link>
+      <pubDate>Mon, 04 May 2020 09:27:07 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=67</guid> 
+      <description>&lt;p&gt;Recently, we got a bug inside the app. The app was crashing in the push notification receiver class that we had on the line where we called&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;notificationManager.notify(notificationId, notificationBuilder.build())&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

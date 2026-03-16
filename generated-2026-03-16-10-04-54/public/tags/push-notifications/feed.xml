@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Push-Notifications on Make Things Happen</title>
+    <link>http://localhost:1313/tags/push-notifications/</link>
+    <description>Recent content in Push-Notifications on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 05 May 2020 12:44:33 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/push-notifications/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android Notification White Square Icon</title>
+      <link>http://localhost:1313/2020/05/05/android-notification-white-square-icon/</link>
+      <pubDate>Tue, 05 May 2020 12:44:33 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=244</guid> 
+      <description>We have all seen the white square at the top type of a notification in the notification bar.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,106 @@
+- id: "1"
+  author_name: TransactionTooLargeException when using NotificationManager.notify on Samsung devices &#8211; Make Things Happen
+  author_email: ""
+  author_url: http://georgimirchev.com/2020/05/04/transactiontoolargeexception-when-using-notificationmanager-notify-on-samsung-devices/
+  published: 2020-05-04T12:29:58Z
+  parent_id: "0"
+  content: '[&#8230;] can check this article in order to see how to send push notifications using [&#8230;]'
+  post_url: /2020/05/04/test-push-notifications-on-android-without-a-server/
+  post_id: "71"
+- id: "2"
+  author_name: Simple role management for SailsJS &#8211; Make Things Happen
+  author_email: ""
+  author_url: http://georgimirchev.com/2020/05/04/simple-role-management-for-sailsjs/
+  published: 2020-05-04T16:45:29Z
+  parent_id: "0"
+  content: '[&#8230;] Simple as that using policies you can attach custom properties to the route and evaluate them later in a policy. This way I made a custom property for params validation of a request. It is in my previous blog post. [&#8230;]'
+  post_url: /2020/05/04/how-to-add-joi-params-query-body-validation-to-sails-js/
+  post_id: "187"
+- id: "263"
+  author_name: Keaton S
+  author_email: keatonstein725@yahoo.com
+  author_url: https://www.keatonstein.com/
+  published: 2023-03-27T14:04:24Z
+  parent_id: "0"
+  content: Hi thanks for posting thiis
+  post_url: /2020/05/04/context-in-android-databinding-xml-files/
+  post_id: "209"
+- id: "67"
+  author_name: Tricky parts when implementing unit tests for Android in Kotlin &#8211; Make Things Happen
+  author_email: ""
+  author_url: http://georgimirchev.com/2020/11/12/tricky-parts-when-implementing-unit-tests-for-android-in-kotlin/
+  published: 2020-11-12T12:21:35Z
+  parent_id: "0"
+  content: '[&#8230;] More information can be found HERE. [&#8230;]'
+  post_url: /2020/11/12/running-unit-tests-for-livedata-with-jupiter-on-android/
+  post_id: "290"
+- id: "139"
+  author_name: Android token refresh mechanism &#8211; OkHttp vs RxJava layering &#8211; Make Things Happen
+  author_email: ""
+  author_url: http://georgimirchev.com/2021/02/12/android-token-refresh-mechanism-okhttp-vs-rxjava-layering/
+  published: 2021-02-12T22:50:51Z
+  parent_id: "0"
+  content: '[&#8230;] And this is where you end up trying share() or replayingShare() or trying to figure out a strategy where the refresh happens only once. And the question that raises up is: Is RxJava the right approach for this [&#8230;]'
+  post_url: /2020/12/17/execute-an-rxjava-observable-only-once-in-a-given-time-period/
+  post_id: "314"
+- id: "154"
+  author_name: igor.ganapolsky
+  author_email: iganapolsky@gmail.com
+  author_url: http://www.igorganapolsky.com
+  published: 2021-05-07T00:31:44Z
+  parent_id: "0"
+  content: Thank you for this explanation.  Why not use `${{ secrets.GITHUB_ACTOR }}` and `${{ secrets.GITHUB_TOKEN }}` instead of hardcoding them as gpr variables?
+  post_url: /2021/04/04/publishing-a-private-android-library/
+  post_id: "412"
+- id: "155"
+  author_name: Georgi Mirchev
+  author_email: gmirchev90@gmail.com
+  author_url: http://mirchev.space
+  published: 2021-05-07T06:34:17Z
+  parent_id: "154"
+  content: 'I did it just for the example. You can have them defined wherever is the best fit for you: separate gradle file, local properties or somewhere else. :)'
+  post_url: /2021/04/04/publishing-a-private-android-library/
+  post_id: "412"
+- id: "156"
+  author_name: igor.ganapolsky
+  author_email: iganapolsky@gmail.com
+  author_url: http://www.about.me/eazyigz
+  published: 2021-05-07T18:18:07Z
+  parent_id: "155"
+  content: I meant - they are already defined on Github automatically when you create Actions config for the repo.
+  post_url: /2021/04/04/publishing-a-private-android-library/
+  post_id: "412"
+- id: "280"
+  author_name: Jury
+  author_email: sewagebox@gmail.com
+  author_url: ""
+  published: 2025-06-16T19:23:17Z
+  parent_id: "0"
+  content: |-
+    <!-- wp:paragraph -->
+    <p>where is it?</p>
+    <!-- /wp:paragraph --><!-- wp:paragraph -->
+    <p><strong>Home/.config/Google/AndroidStudio2020.3/options</strong></p>
+    <!-- /wp:paragraph -->
+  post_url: /2021/09/28/fix-the-display-of-the-toolbar-in-android-studio/
+  post_id: "588"
+- id: "281"
+  author_name: Georgi Mirchev
+  author_email: gmirchev90@gmail.com
+  author_url: http://mirchev.space
+  published: 2025-06-18T22:50:25Z
+  parent_id: "280"
+  content: 'In ~/.config/Google/AndroidStudio2020.3/options for older Android Studio version. For the new versions it should be in: ~/Library/Application Support/Google/AndroidStudio/options'
+  post_url: /2021/09/28/fix-the-display-of-the-toolbar-in-android-studio/
+  post_id: "588"
+- id: "236"
+  author_name: Peter Mueller
+  author_email: tomatenquak@yahoo.de
+  author_url: ""
+  published: 2022-03-16T15:02:23Z
+  parent_id: "0"
+  content: |-
+    Many thanks!
+    Worked for me!
+  post_url: /2021/10/08/enable-bluetooth-headset-microphone-on-ubuntu-20-04/
+  post_id: "630"

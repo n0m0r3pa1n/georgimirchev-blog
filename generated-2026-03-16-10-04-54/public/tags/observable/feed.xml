@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Observable on Make Things Happen</title>
+    <link>http://localhost:1313/tags/observable/</link>
+    <description>Recent content in Observable on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 17 Dec 2020 01:58:47 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/observable/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Execute an RxJava observable only once in a given time period</title>
+      <link>http://localhost:1313/2020/12/17/execute-an-rxjava-observable-only-once-in-a-given-time-period/</link>
+      <pubDate>Thu, 17 Dec 2020 01:58:47 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=314</guid> 
+      <description>&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
+&lt;p&gt;Each Android app has an authentication mechanism or at least most of them do. What this auth mechanism does is that it refreshes an access token using a refresh token every N minutes. In our case these N minutes are 7. And now the question is: How do I implement this?&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

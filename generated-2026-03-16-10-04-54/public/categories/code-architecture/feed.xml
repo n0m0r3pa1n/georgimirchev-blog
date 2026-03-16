@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Code-Architecture on Make Things Happen</title>
+    <link>http://localhost:1313/categories/code-architecture/</link>
+    <description>Recent content in Code-Architecture on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Dec 2022 07:46:38 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/code-architecture/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The challenges of server-driven UI on Android</title>
+      <link>http://localhost:1313/2022/12/19/the-challenges-of-server-driven-ui-on-android/</link>
+      <pubDate>Mon, 19 Dec 2022 07:46:38 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=683</guid> 
+      <description>Server-driven UI is not a new concept. Neither for Android, iOS, or the web. It is quite popular in recent years, especially with the introduction of component-driven architectures such as Flux / Redux and others. Now three projects ahead with server-driven architecture in place, I want to share with you some of the challenges that we faced, and the different approaches to solving them. And I will be really happy if you share your experience too.</description>
+    </item>
+    <item>
+      <title>The difference between a spec and a test (Behaviour Driven Development)</title>
+      <link>http://localhost:1313/2020/05/04/the-difference-between-a-spec-and-a-test-behaviour-driven-development/</link>
+      <pubDate>Mon, 04 May 2020 16:33:05 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=218</guid> 
+      <description>&lt;h1 id=&#34;what-is-a-spec&#34;&gt;What is a spec&lt;/h1&gt;
+&lt;p&gt;There was a time where I saw some tests which my colleagues made where the file name in the test folder would be: “users.spec.coffee”. So “spec” is short of specification and it is a totally different way of how we think  about tests.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Design Patterns – Books, tutorials &amp;amp; notes</title>
+      <link>http://localhost:1313/2020/05/04/design-patterns-books-tutorials-notes/</link>
+      <pubDate>Mon, 04 May 2020 16:21:22 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=197</guid> 
+      <description>&lt;h1 id=&#34;why-design-patterns&#34;&gt;Why design patterns?&lt;/h1&gt;
+&lt;p&gt;Well, this question is very simple. Because they will broaden your knowledge and make you enjoy programming again. They will remind it you that programming is a skillful art which requires constant research for a purpose. All of the patterns are extremely practical and easily applied to real world examples.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Android Flux Architecture Example</title>
+      <link>http://localhost:1313/2020/05/04/android-flux-architecture-example/</link>
+      <pubDate>Mon, 04 May 2020 12:54:35 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=155</guid> 
+      <description>&lt;p&gt;I found Flux architecture for several months and I have written a couple apps with React &amp;amp; Flux and as an Android programmer also I think that it has to have an implementation.&lt;/p&gt;
+&lt;p&gt;So I decided to do it. You can check it &lt;a href=&#34;https://github.com/n0m0r3pa1n/android-flux-example&#34;&gt;HERE&lt;/a&gt;. I really believe that Flux for Android will be a “groundbreaker” (may be not my try but the whole concept :)).&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Sample architecture to handle notifications in Android</title>
+      <link>http://localhost:1313/2020/05/04/sample-architecture-to-handle-notifications-in-android/</link>
+      <pubDate>Mon, 04 May 2020 12:39:52 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=142</guid> 
+      <description>&lt;h2 id=&#34;the-use-case&#34;&gt;The use case&lt;/h2&gt;
+&lt;p&gt;I am working in a company here in Bulgaria where we are building a huge android app with over 250 screens. It was time to integrate Firebase push notifications in it. Here were the requirements for them:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Thinking about Code Architecture &amp;amp; Object Oriented Programming</title>
+      <link>http://localhost:1313/2020/05/04/thinking-about-code-architecture-object-oriented-programming/</link>
+      <pubDate>Mon, 04 May 2020 10:52:57 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=113</guid> 
+      <description>&lt;h2 id=&#34;the-content&#34;&gt;The Content&lt;/h2&gt;
+&lt;p&gt;I recently got to watch several videos about architecture that got me a bit deeper into the topic and I decided to share my thoughts here. There first two videos are from Realm:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://academy.realm.io/posts/mvc-vs-mvp-vs-mvvm-vs-mvi-mobilization-moskala/&#34;&gt;MVC vs MVP vs MVVM vs MVI by Marcin Moskala&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://academy.realm.io/posts/android-architecture-components-considered-harmful-mobilization/&#34;&gt;Android Architecture Components Considered Harmful by Vasiliy Zukanov&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;They are mostly Android oriented but there are some general rules which are applicable to code architecture.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Applying Clean Architecture in Android</title>
+      <link>http://localhost:1313/2020/05/04/applying-clean-architecture-in-android/</link>
+      <pubDate>Mon, 04 May 2020 10:49:53 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=109</guid> 
+      <description>&lt;h2 id=&#34;short-intro&#34;&gt;Short Intro&lt;/h2&gt;
+&lt;p&gt;For 4 months now I have been implementing “clean architecture” in my current project. The project is huge, more than 17 Android developers work on it including me, so it is important to apply an architecture that works for all of us. I will not talk about what “clean architecture” is, but I will directly dive into the code and explain step by step the purpose of the layers that we have and what each layer is about.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>It’s 21st century – Stop using EVENTBUS!</title>
+      <link>http://localhost:1313/2020/05/04/its-21st-century-stop-using-eventbus/</link>
+      <pubDate>Mon, 04 May 2020 10:32:29 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=100</guid> 
+      <description>Do you still use it!? Have you used it? I mean the EventBus. If the answer is &lt;strong&gt;NO&lt;/strong&gt;, then you are either a new developer who started Android recently or you had the wonderful opportunity to not meet this three-headed monster. What I am talking about? Let’s make a brieft visit of the Android development history.</description>
+    </item>
+  </channel>
+</rss>

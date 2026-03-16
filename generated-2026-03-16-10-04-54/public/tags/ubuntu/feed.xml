@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ubuntu on Make Things Happen</title>
+    <link>http://localhost:1313/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 07 Dec 2021 12:43:17 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ubuntu/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ubuntu not starting due to Kernel panic error - Could not locate dkms file</title>
+      <link>http://localhost:1313/2021/12/07/ubuntu-not-starting-due-to-kernel-panic-error-could-not-locate-dkms-file/</link>
+      <pubDate>Tue, 07 Dec 2021 12:43:17 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=675</guid> 
+      <description>I guess I updated recently to the latest linux-headers-kernel and my laptop decided to surprise me one morning. It just didn&amp;rsquo;t boot up. It got stuck at the point where it said it couldn&amp;rsquo;t find the dkms.conf file.</description>
+    </item>
+    <item>
+      <title>Enable bluetooth headset microphone on Ubuntu 20.04</title>
+      <link>http://localhost:1313/2021/10/08/enable-bluetooth-headset-microphone-on-ubuntu-20-04/</link>
+      <pubDate>Fri, 08 Oct 2021 09:25:29 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=630</guid> 
+      <description>&lt;p&gt;After months and months dealing with this freaking issue that has become a pain in the ass, for real, there is this article:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://kumarvinay.com/how-to-enable-bluetooth-headset-microphone-support-in-ubuntu-20-04/&#34;&gt;https://kumarvinay.com/how-to-enable-bluetooth-headset-microphone-support-in-ubuntu-20-04/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;That made things working again. I just cannot believe how much effort is needed to make a simple bluetooth headset work on Ubuntu. It still doesn&amp;rsquo;t work great, but it is fine.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Disabling update manager popup in Ubuntu</title>
+      <link>http://localhost:1313/2020/05/04/disabling-update-manager-popup-in-ubuntu/</link>
+      <pubDate>Mon, 04 May 2020 17:51:58 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=237</guid> 
+      <description>I want to stop the update manager from popping up in Ubuntu because I think that they release bad updates sometimes and really make the OS unstable. This is my personal opinion after 3 reinstallations in 2 months.</description>
+    </item>
+    <item>
+      <title>How to handle multiple heroku accounts with GIT</title>
+      <link>http://localhost:1313/2020/05/04/how-to-handle-multiple-heroku-accounts-with-git/</link>
+      <pubDate>Mon, 04 May 2020 17:51:01 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=234</guid> 
+      <description>Following the answer from &lt;a href=&#34;http://stackoverflow.com/questions/4663103/multiple-heroku-accounts&#34;&gt;HERE&lt;/a&gt; it is becoming a simple task.</description>
+    </item>
+    <item>
+      <title>Guake Terminal for Ubuntu not opening another terminal in the same folder</title>
+      <link>http://localhost:1313/2020/05/04/guake-terminal-for-ubuntu-not-opening-another-terminal-in-the-same-folder/</link>
+      <pubDate>Mon, 04 May 2020 17:42:42 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=224</guid> 
+      <description>&lt;p&gt;I use Guake for Ubuntu as a terminal. And there is this option in the Guake properties to set it to open the same directory you were in if you want another terminal. This is just now working with the latest version of Guake. To fix it just run the following:&lt;/p&gt;
+&lt;p&gt;gconftool-2 –set /apps/guake/general/open_tab_cwd –type=boolean true&lt;/p&gt;
+&lt;p&gt;And it will add a variable saying that you want the same folder opened when you open another terminal. 🙂&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ubuntu install Chinese fonts</title>
+      <link>http://localhost:1313/2020/05/04/ubuntu-install-chinese-fonts/</link>
+      <pubDate>Mon, 04 May 2020 13:00:58 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=164</guid> 
+      <description>&lt;p&gt;Recently I had to install manually an Ubuntu with the xfce4 desktop. I couldn’t read Chinese symbols so here is the solution:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt-get install fonts-wqy-zenhei
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;It installs wide range of fonts for Chinese&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>How to stop services from running in Ubuntu or how to stop mongo from autostart?</title>
+      <link>http://localhost:1313/2020/05/04/how-to-stop-services-from-running-in-ubuntu-or-how-to-stop-mongo-from-autostart/</link>
+      <pubDate>Mon, 04 May 2020 12:48:56 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=149</guid> 
+      <description>I wanted to stop the mongod service running on system boot in Ubuntu. This service is starting the mongodb database.</description>
+    </item>
+    <item>
+      <title>Ubuntu/Mint show git branch in terminal (bashrc edit)</title>
+      <link>http://localhost:1313/2020/05/04/ubuntu-mint-show-git-branch-in-terminal-bashrc-edit/</link>
+      <pubDate>Mon, 04 May 2020 11:12:11 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=128</guid> 
+      <description>&lt;p&gt;I just wanted to share with you how my terminal looks like and how to export the PS1 variable.&lt;/p&gt;
+&lt;p&gt;To achieve it for Ubuntu: sudo gedit ~/.bashrc&lt;/p&gt;
+&lt;p&gt;For Linux Mint: sudo gedit /etc/bash.bashrc&lt;/p&gt;
+&lt;p&gt;And paste the following there at the line before the last one:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;export&lt;/span&gt; PS1&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;32m\]\u@\h\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;34m\] \w\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;33m\]$(__git_ps1)\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;34m\] \$\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[00m\] &amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Failed to start mongod.service: Unit mongod.service not found. – Ubuntu 16.04</title>
+      <link>http://localhost:1313/2020/05/04/failed-to-start-mongod-service-unit-mongod-service-not-found-ubuntu-16-04/</link>
+      <pubDate>Mon, 04 May 2020 10:35:25 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=103</guid> 
+      <description>Recently, I installed MongoDB following the &lt;a href=&#34;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/#install-mongodb-community-edition&#34;&gt;tutorial&lt;/a&gt; on their site on Ubuntu 16.04 64 bit. But when trying to start the mongod service I got the following error: “Failed to start mongod.service: Unit mongod.service not found.”</description>
+    </item>
+    <item>
+      <title>/dev/kvm permission denied on Ubuntu 18.04</title>
+      <link>http://localhost:1313/2020/05/04/dev-kvm-permission-denied-on-ubuntu-18-04/</link>
+      <pubDate>Mon, 04 May 2020 09:36:57 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=89</guid> 
+      <description>&lt;p&gt;Edit (06.06.2018):{{ double-space-with-newline }}You can follow the &lt;a href=&#34;https://web.archive.org/web/20191021224412/https://github.com/uw-it-aca/spacescout-android/wiki/1.-Setting-Up-Android-Studio-on-Ubuntu&#34;&gt;simple&lt;/a&gt; &lt;a href=&#34;https://github.com/uw-it-aca/spacescout-android/wiki/1.-Setting-Up-Android-Studio-on-Ubuntu&#34;&gt;tutorial&lt;/a&gt; &lt;a href=&#34;https://web.archive.org/web/20191021224412/https://github.com/uw-it-aca/spacescout-android/wiki/1.-Setting-Up-Android-Studio-on-Ubuntu&#34;&gt;here&lt;/a&gt; to install KVM. Thanks to azbest!&lt;/p&gt;
+&lt;p&gt;I got this error when I was trying to create an emulator:&lt;/p&gt;
+&lt;p&gt;/dev/kvm permission denied&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Ubuntu – Alt &#43; Shift &#43; any key switches the language and does not work</title>
+      <link>http://localhost:1313/2020/05/04/ubuntu-alt-shift-any-key-switches-the-language-and-does-not-work/</link>
+      <pubDate>Mon, 04 May 2020 09:35:35 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=86</guid> 
+      <description>I faced this bug in Ubuntu 18.04. When I used Alt + Shift + 7 inside Webstorm which is the command for Find Usages, it actually changed the language because the command included Alt + Shift (I previously set this by using Gnome Tweak Tool). Here is a bug related to this in &lt;a href=&#34;https://web.archive.org/web/20190709014520/https://bugs.launchpad.net/ubuntu/+source/xorg-server/+bug/1683383&#34;&gt;Launchpad&lt;/a&gt;.</description>
+    </item>
+    <item>
+      <title>“No space left on device” message with npm &amp;amp; Ubuntu 18.04</title>
+      <link>http://localhost:1313/2020/05/04/no-space-left-on-device-message-with-npm-ubuntu-18-04/</link>
+      <pubDate>Mon, 04 May 2020 09:32:30 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=81</guid> 
+      <description>&lt;p&gt;I got the “No space left on device” message when trying to run a React website using npm. The fix was fast and easy following &lt;a href=&#34;https://web.archive.org/web/20191021221952/https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers&#34;&gt;THIS advice:&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf &amp;amp;&amp;amp; sudo sysctl -p
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Installing Grub fails on Ubuntu 16.04</title>
+      <link>http://localhost:1313/2020/05/04/installing-grub-fails-on-ubuntu-16-04/</link>
+      <pubDate>Mon, 04 May 2020 09:31:42 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=78</guid> 
+      <description>&lt;p&gt;I got this nasty error when it came to having a fresh install of Ubuntu 16.04. It says that GRUB cannot be installed on /target device. In order to fix this you need to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a partition around 300 mbs&lt;/li&gt;
+&lt;li&gt;Use the FAT32 format and target it as EFI partition&lt;/li&gt;
+&lt;li&gt;Choose that the GRUB installer should be installed on this 300 mbs partition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then the installation should finish succesfully without any errors.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Add application to launcher in Ubuntu 16.04</title>
+      <link>http://localhost:1313/2020/05/04/add-application-to-launcher-in-ubuntu-16-04/</link>
+      <pubDate>Mon, 04 May 2020 09:30:56 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=75</guid> 
+      <description>&lt;p&gt;Just use a program called alacarte:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install alacarte&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Click on the New Item button, write the command &amp;amp; name of the app, choose a logo if you want and you will see it appearing shortly in the Unity launcher by typing the name. Otherwise, you will have to create a *.desktop file and add it to .local/share/applications which I couldn’t make it work after spending a couple of hours.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

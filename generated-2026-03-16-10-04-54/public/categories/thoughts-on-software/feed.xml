@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Thoughts-on-Software on Make Things Happen</title>
+    <link>http://localhost:1313/categories/thoughts-on-software/</link>
+    <description>Recent content in Thoughts-on-Software on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 23 Nov 2025 17:01:27 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/thoughts-on-software/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cursor on Android: Where it struggles and how to make it useful</title>
+      <link>http://localhost:1313/2025/11/23/cursor-on-android-where-it-struggles-and-how-to-make-it-useful/</link>
+      <pubDate>Sun, 23 Nov 2025 17:01:27 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=2592</guid> 
+      <description>AI is here, and the best we can do now is take a look at it and not ignore it. I have been using Cursor with Claude for the past six months, both on personal and work projects of various sizes, and I can tell for sure that it handles some tasks with ease, while others are a huge struggle until you intervene and give the right direction. But even with that in mind, it still manages to save tons of hours of writing templates and sometimes makes me wonder whether my brain is working less effectively just because I can ask it to figure out a given problem for me. But here are the major problems that I experienced with it until now.</description>
+    </item>
+    <item>
+      <title>Why am I unsubscribing from Medium as a tech info source?</title>
+      <link>http://localhost:1313/2024/04/08/why-i-am-unsubscribing-from-medium-as-a-tech-info-source/</link>
+      <pubDate>Mon, 08 Apr 2024 18:10:07 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=1947</guid> 
+      <description>I started &lt;a href=&#34;https://medium.com/@mirchev&#34;&gt;writing on Medium&lt;/a&gt; in 2016 when I thought it made sense to share helpful info with other people on a platform to which everyone has access. This way you don&amp;rsquo;t need to promote your content; it is immediately available to everyone, as people say &amp;ldquo;under their fingertips&amp;rdquo;.</description>
+    </item>
+    <item>
+      <title>How did we get to an IT crisis in 2024?</title>
+      <link>http://localhost:1313/2024/03/03/how-did-we-get-to-an-it-crisis-in-2024/</link>
+      <pubDate>Sun, 03 Mar 2024 07:02:35 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=1800</guid> 
+      <description>&lt;p&gt;We live in interesting times. We are doomed to live in this era where computers have replaced people, money has become a virtue, and the connection between ourselves is destroyed by the strong feeling of individualism. But no, I won&amp;rsquo;t be talking about these obvious things, I will talk about another thing happening in the IT sector. I mean the constant layoffs that have started since the COVID crisis and are continuing even today when thousands of people are losing their jobs and are left to help themselves &amp;hellip; individually.&lt;/p&gt;
+&lt;p&gt;What makes me constantly think about these layoffs? Let&amp;rsquo;s say I am very close to such examples where highly skilled people are lost, CEOs we are wondering how to get out of the product rabbit hole and companies have made some awful staffing decisions that are still hidden from everyone&amp;rsquo;s sight. Recently, I figured out that the &lt;a href=&#34;https://layoffs.fyi&#34;&gt;layoffs.fyi&lt;/a&gt; website stands next to my Github pull requests tabs and I just started searching for the reason: &amp;ldquo;Why?&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    <item>
+      <title>Are you a product developer or a project developer?</title>
+      <link>http://localhost:1313/2021/10/08/are-you-a-product-developer-or-a-project-developer/</link>
+      <pubDate>Fri, 08 Oct 2021 10:23:05 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=634</guid> 
+      <description>&lt;blockquote&gt;
+&lt;p&gt;I am so sad to see really good developers leaving because we are not doing products but projects&lt;/p&gt;
+&lt;p&gt;an unknown CTO&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Believe it or not, I heard the above on a lunch with the whole Android team and with the CTO of the whole company that I was working for. What does it mean to build a project vs building a product? Is there such a huge difference when you are developing a software solution? Let&amp;rsquo;s dig deeper into this.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

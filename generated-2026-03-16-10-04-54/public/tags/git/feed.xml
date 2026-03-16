@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Git on Make Things Happen</title>
+    <link>http://localhost:1313/tags/git/</link>
+    <description>Recent content in Git on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 17:51:01 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/git/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to handle multiple heroku accounts with GIT</title>
+      <link>http://localhost:1313/2020/05/04/how-to-handle-multiple-heroku-accounts-with-git/</link>
+      <pubDate>Mon, 04 May 2020 17:51:01 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=234</guid> 
+      <description>Following the answer from &lt;a href=&#34;http://stackoverflow.com/questions/4663103/multiple-heroku-accounts&#34;&gt;HERE&lt;/a&gt; it is becoming a simple task.</description>
+    </item>
+    <item>
+      <title>Ubuntu/Mint show git branch in terminal (bashrc edit)</title>
+      <link>http://localhost:1313/2020/05/04/ubuntu-mint-show-git-branch-in-terminal-bashrc-edit/</link>
+      <pubDate>Mon, 04 May 2020 11:12:11 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=128</guid> 
+      <description>&lt;p&gt;I just wanted to share with you how my terminal looks like and how to export the PS1 variable.&lt;/p&gt;
+&lt;p&gt;To achieve it for Ubuntu: sudo gedit ~/.bashrc&lt;/p&gt;
+&lt;p&gt;For Linux Mint: sudo gedit /etc/bash.bashrc&lt;/p&gt;
+&lt;p&gt;And paste the following there at the line before the last one:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;export&lt;/span&gt; PS1&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;32m\]\u@\h\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;34m\] \w\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;33m\]$(__git_ps1)\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[01;34m\] \$\[&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\033&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;[00m\] &amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>

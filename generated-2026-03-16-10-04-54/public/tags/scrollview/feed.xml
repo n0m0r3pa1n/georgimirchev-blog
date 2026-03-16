@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Scrollview on Make Things Happen</title>
+    <link>http://localhost:1313/tags/scrollview/</link>
+    <description>Recent content in Scrollview on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 12:52:34 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/scrollview/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to get ScrollView height (getHeight() = 0) and how to display an arrow that it is scrollable?</title>
+      <link>http://localhost:1313/2020/05/04/how-to-get-scrollview-height-getheight-0-and-how-to-display-an-arrow-that-it-is-scrollable/</link>
+      <pubDate>Mon, 04 May 2020 12:52:34 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=152</guid> 
+      <description>&lt;p&gt;Lets say that we have a ScrollView which should ahave an arrow at its bottom. That arrow is visible only when the ScrollView is scrollable (That means it has more content than it can display).&lt;/p&gt;
+&lt;p&gt;In android the scrollview does not have a method isScrollable() and I am still wondering what is the reason. May be too complex realization.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

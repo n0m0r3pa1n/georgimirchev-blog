@@ -1,0 +1,35 @@
+<aside class="sidebar">
+
+  {{/* ── Categories ── */}}
+  {{ with site.Taxonomies.categories }}
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Categories</h3>
+    <ul class="sidebar-category-list">
+      {{ range .ByCount }}
+      <li>
+        <a href="{{ "/categories/" | relLangURL }}{{ .Page.Title | urlize }}/">
+          {{ .Page.Title }}
+          <span class="sidebar-count">{{ .Count }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+  {{/* ── Tags (top 30 by post count) ── */}}
+  {{ with site.Taxonomies.tags }}
+  <div class="sidebar-widget">
+    <h3 class="sidebar-title">Tags</h3>
+    <div class="sidebar-tag-cloud">
+      {{ range first 30 .ByCount }}
+      <a class="sidebar-tag" href="{{ "/tags/" | relLangURL }}{{ .Page.Title | urlize }}/">
+        {{ .Page.Title }}
+        <span class="sidebar-count">{{ .Count }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+  {{ end }}
+
+</aside>

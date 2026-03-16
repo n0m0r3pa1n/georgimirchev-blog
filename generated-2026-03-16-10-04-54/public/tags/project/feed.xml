@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Project on Make Things Happen</title>
+    <link>http://localhost:1313/tags/project/</link>
+    <description>Recent content in Project on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 08 Oct 2021 10:23:05 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/project/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Are you a product developer or a project developer?</title>
+      <link>http://localhost:1313/2021/10/08/are-you-a-product-developer-or-a-project-developer/</link>
+      <pubDate>Fri, 08 Oct 2021 10:23:05 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=634</guid> 
+      <description>&lt;blockquote&gt;
+&lt;p&gt;I am so sad to see really good developers leaving because we are not doing products but projects&lt;/p&gt;
+&lt;p&gt;an unknown CTO&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Believe it or not, I heard the above on a lunch with the whole Android team and with the CTO of the whole company that I was working for. What does it mean to build a project vs building a product? Is there such a huge difference when you are developing a software solution? Let&amp;rsquo;s dig deeper into this.&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Toolbar on Make Things Happen</title>
+    <link>http://localhost:1313/tags/toolbar/</link>
+    <description>Recent content in Toolbar on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 28 Sep 2021 08:15:50 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/toolbar/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Approaches not to cause a crash when setting toolbar title on the activity through a fragment</title>
+      <link>http://localhost:1313/2021/09/28/approaches-not-to-cause-a-crash-when-setting-toolbar-title-on-the-activity-through-a-fragment/</link>
+      <pubDate>Tue, 28 Sep 2021 08:15:50 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=597</guid> 
+      <description>&lt;p&gt;Setting a toolbar title on the activity should be easy, right? But what about if you want do it through a fragment? Still easy? Well, not exactly.&lt;/p&gt;
+&lt;p&gt;The issue is that you may try to touch the toolbar in a moment where the activity is actually still not inflated. This will cause an exception immediately and your app will crash. What is the exact issue?&lt;/p&gt;
+</description>
+    </item>
+  </channel>
+</rss>

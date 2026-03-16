@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Json on Make Things Happen</title>
+    <link>http://localhost:1313/tags/json/</link>
+    <description>Recent content in Json on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Apr 2021 12:43:17 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/json/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Migration from Gson to Moshi - small tricky parts</title>
+      <link>http://localhost:1313/2021/04/04/migration-from-moshi-to-gson-small-tricky-parts/</link>
+      <pubDate>Sun, 04 Apr 2021 12:43:17 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=434</guid> 
+      <description>Gson is outdated a bit with the last commit done &lt;a href=&#34;https://github.com/google/gson&#34;&gt;quite some time ago&lt;/a&gt;. We also had implemented the Moshi library in our Gradle dependencies and these are the 2 reasons why we decided to move away from GSON.</description>
+    </item>
+  </channel>
+</rss>

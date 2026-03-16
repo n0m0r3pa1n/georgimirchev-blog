@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Server-Driven-Ui on Make Things Happen</title>
+    <link>http://localhost:1313/tags/server-driven-ui/</link>
+    <description>Recent content in Server-Driven-Ui on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 19 Dec 2022 07:46:38 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/server-driven-ui/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The challenges of server-driven UI on Android</title>
+      <link>http://localhost:1313/2022/12/19/the-challenges-of-server-driven-ui-on-android/</link>
+      <pubDate>Mon, 19 Dec 2022 07:46:38 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=683</guid> 
+      <description>Server-driven UI is not a new concept. Neither for Android, iOS, or the web. It is quite popular in recent years, especially with the introduction of component-driven architectures such as Flux / Redux and others. Now three projects ahead with server-driven architecture in place, I want to share with you some of the challenges that we faced, and the different approaches to solving them. And I will be really happy if you share your experience too.</description>
+    </item>
+  </channel>
+</rss>

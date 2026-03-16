@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Sample architecture to handle notifications in Android | Make Things Happen</title>
+<meta name="keywords" content="architecture">
+<meta name="description" content="The use case
+I am working in a company here in Bulgaria where we are building a huge android app with over 250 screens. It was time to integrate Firebase push notifications in it. Here were the requirements for them:">
+<meta name="author" content="gmirchev90">
+<link rel="canonical" href="http://localhost:1313/2020/05/04/sample-architecture-to-handle-notifications-in-android/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.761240b39cdcb8254d4daa21e0392ab45046656a213d576e85f211a26719b5eb.css" integrity="sha256-dhJAs5zcuCVNTaoh4DkqtFBGZWohPVduhfIRomcZtes=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/2020/05/04/sample-architecture-to-handle-notifications-in-android/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Make Things Happen (Alt + H)">Make Things Happen</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Sample architecture to handle notifications in Android
+    </h1>
+    <div class="post-meta"><span title='2020-05-04 12:39:52 +0000 +0000'>May 4, 2020</span>&nbsp;·&nbsp;<span>7 min</span>&nbsp;·&nbsp;<span>gmirchev90</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="the-use-case">The use case<a hidden class="anchor" aria-hidden="true" href="#the-use-case">#</a></h2>
+<p>I am working in a company here in Bulgaria where we are building a huge android app with over 250 screens. It was time to integrate Firebase push notifications in it. Here were the requirements for them:</p>
+<ul>
+<li>When the app is open notifications should
+<ul>
+<li>Appear on some screens</li>
+<li>Not appear on other screens</li>
+<li>Some notifications may be handled by fragments or activities</li>
+</ul>
+</li>
+<li>Each notification has a type</li>
+<li>Each type of notification leads to different screens</li>
+<li>Notifications received when the app is open should not be visible when the app is closed</li>
+<li>Some notifications with a certain type will get the text from the server, others will have their own</li>
+<li>If a notification is received, but the user does not click on it and he manually opens the appropriate screen to which the notification should follow, the notification should disappear</li>
+</ul>
+<h2 id="the-idea">The idea<a hidden class="anchor" aria-hidden="true" href="#the-idea">#</a></h2>
+<p>Our idea was to use a method very close how to how the <a href="http://nmp90.com/2017/01/mastering-android-touch-system/">Touch Framework in Android works</a>. It is implemented using inheritance. You can try a different approach by using composition.</p>
+<p>Our main goals were:</p>
+<ul>
+<li>Not have any casting or type checking of the notifications in the app</li>
+<li>Ask each Activity/Fragment if it wants to handle the notification or not</li>
+</ul>
+<p>So this is what we do. We ask each activity/fragment if they want to handle the notification by using our NotificationListener interface, if not – we let our default notification handling work. For different types of notifications, we have different handle methods.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>interface NotificationListener {
+</span></span><span style="display:flex;"><span>  boolean handleTicketNotification(TicketNotification notification);
+</span></span><span style="display:flex;"><span>  boolean handlePaymentNotification(PaymentNotification notification);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="overall-structure">Overall structure<a hidden class="anchor" aria-hidden="true" href="#overall-structure">#</a></h2>
+<ul>
+<li>MyFirebaseMessagingService – our service which extends FirebaseMessagingService and listens for incoming notifications. It then broadcasts them through the LocalBroadcastManager</li>
+<li>BaseActivity – a class extended by all activities with the common logic of handling notifications</li>
+<li>NotificationListener – an interface which has methods returning boolean for each type of notification. Its return type is used to determine whether an activity/fragment wants to override the display of a notification or not</li>
+<li>NotificationManager – small class to handle listening to the types of notification coming from the MyFirebaseMessagingService</li>
+</ul>
+<figure>
+    <img loading="lazy" src="https://web.archive.org/web/20190102182103im%5F/http://nmp90.com/wp-content/uploads/2017/03/Tide-Notifications-Diagram.png"/> 
+</figure>
+
+<h2 id="fighting-the-problems">Fighting the problems<a hidden class="anchor" aria-hidden="true" href="#fighting-the-problems">#</a></h2>
+<h3 id="helper-class">Helper class<a hidden class="anchor" aria-hidden="true" href="#helper-class">#</a></h3>
+<p>We extracted the notification receiving logic in a small notification Manager class. It creates an intent filter for a given activity and subscribes to the incoming notifications using the LocalBroadcastManager:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class NotificationManager {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    private final Activity activity;
+</span></span><span style="display:flex;"><span>    private BroadcastReceiver notificationsReceiver;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public NotificationManager(Activity activity) {
+</span></span><span style="display:flex;"><span>        this.activity = activity;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public void start(NotificationListener notificationListener,
+</span></span><span style="display:flex;"><span>                      UnhandledNotificationListener onNotificationNotHandled) {
+</span></span><span style="display:flex;"><span>        notificationsReceiver = new BroadcastReceiver() {
+</span></span><span style="display:flex;"><span>            @Override
+</span></span><span style="display:flex;"><span>            public void onReceive(Context context, Intent intent) {
+</span></span><span style="display:flex;"><span>                if (intent.hasExtra(Constant.NOTIFICATION)
+</span></span><span style="display:flex;"><span>                        &amp;&amp; Constant.ACTION_NOTIFICATION_RECEIVED.equals(intent.getAction())) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    BaseNotification notificationData = NotificationPaser.getNotificationData(intent.getExtras());
+</span></span><span style="display:flex;"><span>                    if(!notificationData.handleNotification(notificationListener)) {
+</span></span><span style="display:flex;"><span>                        notificationData.onNotificationNotHandled(onNotificationNotHandled, intent);
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        IntentFilter filter = new IntentFilter();
+</span></span><span style="display:flex;"><span>        filter.addAction(Constant.ACTION_NOTIFICATION_RECEIVED);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        LocalBroadcastManager.getInstance(activity).registerReceiver(notificationsReceiver, filter);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public void stop() {
+</span></span><span style="display:flex;"><span>        LocalBroadcastManager.getInstance(activity).unregisterReceiver(notificationsReceiver);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="notifications-should-appear-on-some-screens-and-not-on-other-screens">Notifications should appear on some screens and not on other screens<a hidden class="anchor" aria-hidden="true" href="#notifications-should-appear-on-some-screens-and-not-on-other-screens">#</a></h3>
+<h4 id="activities">Activities<a hidden class="anchor" aria-hidden="true" href="#activities">#</a></h4>
+<p>For activities, we have the BaseActivity class which is extended from each Activity. So it implements the NotificationListener interface and each activity which extends it, decides whether to override a given ticket method or not.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>abstract <span style="color:#66d9ef">class</span> BaseActivity <span style="color:#66d9ef">extends</span> Activity implements NotificationListener {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>    void onStart() {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">//</span> UnhandledNotificationListener is the default handling <span style="color:#66d9ef">if</span> the handleMethods <span style="color:#66d9ef">return</span> false
+</span></span><span style="display:flex;"><span>      notificationManager<span style="color:#f92672">.</span>start(this, new UnhandledNotificationListener() {
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>            public void onTicketNotHandled(TicketNotification ticketNotification, Intent intent) {
+</span></span><span style="display:flex;"><span>                displayTicketNotification(ticketNotification, intent);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>            public void onPaymentNotHandled(PaymentNotification paymentNotification, Intent intent) {
+</span></span><span style="display:flex;"><span>                displayPaymentNotification(paymentNotification, intent);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>    public boolean handleTicketNotification(TicketNotification ticketNotification) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>    public boolean handlePaymentNotification(PaymentNotification ticketNotification) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="fragments">Fragments<a hidden class="anchor" aria-hidden="true" href="#fragments">#</a></h4>
+<p>For fragments, we didn’t have such a base class as we had in the activities so we decided to let each fragment implement the NotificationListener interface. So we get the visible fragment in the activity, check if it an instance of a NotificationListener interface and pass the data to it by casting it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> TabsActivity <span style="color:#66d9ef">extends</span> BaseActivity {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>    public boolean handlePaymentNotification(PaymentNotification paymentNotification) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (getNotificationListenerFragment() <span style="color:#f92672">!=</span> null) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> getNotificationListenerFragment()<span style="color:#f92672">.</span>handlePaymentNotification(paymentNotification);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> false;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public NotificationListener getNotificationListenerFragment() {
+</span></span><span style="display:flex;"><span>        NavigationController controller <span style="color:#f92672">=</span> ((NavigationController) tabsController<span style="color:#f92672">.</span>getVisibleFragment());
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (controller <span style="color:#f92672">!=</span> null <span style="color:#f92672">&amp;&amp;</span> controller<span style="color:#f92672">.</span>getVisibleFragment() instanceof NotificationListener) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> (NotificationListener) controller<span style="color:#f92672">.</span>getVisibleFragment();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> null;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="different-text-for-different-notifications">Different text for different notifications<a hidden class="anchor" aria-hidden="true" href="#different-text-for-different-notifications">#</a></h3>
+<p>So on some screens user should not see the text for a notification, on other screens he should see it. So if you receive a notification for the update of your bank account number, while you are logged out, you should not see the text (you should not receive this type of notification, but that is for another post).</p>
+<p>We user the strategy pattern for this case. We have three different ways of building notification text: VisibleTextBuilder, HiddenTextBuilder, GenericTextBuilder. All of these are called in the BaseActivity when the notification is received and they extend the NotificationTextBuilder interface. Based on the notification type, we use a different type of text builder.</p>
+<p>So our displayTicketNotification and displayPaymentNotification methods use one of the mentioned text builders to display a given notification. Each of these methods is public, so an Activity can modify the text, notification pending activity and the data of the notification.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>     protected void displayTicketNotification(TicketNotification ticketNotification, Intent intent) {
+</span></span><span style="display:flex;"><span>        // Dagger used to inject the appropriate text builder
+</span></span><span style="display:flex;"><span>        NotificationTextBuilder ticketNotificationTextBuilder = getComponent()
+</span></span><span style="display:flex;"><span>                .plus(new NotificationModule(ticketNotification.getMessageId(), ticketNotification.isAuthenticatedMessage()))
+</span></span><span style="display:flex;"><span>                .getNotificationTextBuilder();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        CustomNotificationBuilder builder = CustomNotificationBuilder
+</span></span><span style="display:flex;"><span>                .builder(ticketNotification, this)
+</span></span><span style="display:flex;"><span>                .setTicketNotificationTextBuilder(ticketNotificationTextBuilder)
+</span></span><span style="display:flex;"><span>                .setNotificationPendingActivity(ticketNotification.isAuthenticatedMessage() ? LoginSecurityCodeActivity.class : ContactActivity.class)
+</span></span><span style="display:flex;"><span>                .setIntent(intent);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        builder.showNotification(ticketNotification.getTicketId());
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h3 id="navigation-for-different-types">Navigation for different types<a hidden class="anchor" aria-hidden="true" href="#navigation-for-different-types">#</a></h3>
+<p>This is accomplished by Overriding the appropriate display****Notification method in each activity which wants to modify the screen which should open when the notification is received. Each activity works with the builder and builds its own notification.</p>
+<h3 id="notification-types">Notification Types<a hidden class="anchor" aria-hidden="true" href="#notification-types">#</a></h3>
+<h4 id="hierarchy">Hierarchy<a hidden class="anchor" aria-hidden="true" href="#hierarchy">#</a></h4>
+<p>All of the received notifications have at least 3 common fields of data. That’s why we made the BaseNotification class. And by using Jackson, we can easily tell it what instance it should create based on the type of a certain field. The code below does the following:</p>
+<ul>
+<li>If the notificationType field equals “NEW_QUEUED PAYMENT” create an object of PaymentNotification class</li>
+<li>If the notificationType field equals “MESSAGE_RECEIVED” create an object of TicketNotification class</li>
+<li>Otherwise create an object of UnknownNotification class</li>
+</ul>
+<p>PaymentNotification, TicketNotification and UnknownNotification all extend from the BaseNotification class.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>@JsonTypeInfo(
+</span></span><span style="display:flex;"><span>        use = JsonTypeInfo.Id.NAME,
+</span></span><span style="display:flex;"><span>        include = JsonTypeInfo.As.PROPERTY,
+</span></span><span style="display:flex;"><span>        // if the field contains unknown value
+</span></span><span style="display:flex;"><span>        defaultImpl = UnknownNotification.class,
+</span></span><span style="display:flex;"><span>        property = &#34;notificationType&#34;,
+</span></span><span style="display:flex;"><span>        // add the notificationType to the class, otherwise it won&#39;t
+</span></span><span style="display:flex;"><span>        visible = true
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>@JsonSubTypes({
+</span></span><span style="display:flex;"><span>        @JsonSubTypes.Type(value = PaymentNotification.class, name = &#34;NEW_QUEUED_PAYMENT&#34;),
+</span></span><span style="display:flex;"><span>        @JsonSubTypes.Type(value = TicketNotification.class, name = &#34;MESSAGE_RECEIVED&#34;)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>public abstract class BaseNotification implements Serializable {
+</span></span><span style="display:flex;"><span>    private NotificationType notificationType;
+</span></span><span style="display:flex;"><span>    private String title, body, sound;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public abstract boolean handleNotification(NotificationListener notificationListener);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    public abstract void onNotificationNotHandled(UnhandledNotificationListener onNotificationNotHandled, Intent intent);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="escaping-casting">Escaping casting<a hidden class="anchor" aria-hidden="true" href="#escaping-casting">#</a></h4>
+<p>To escape the casting we let the notification objects themselves to work with the NotificationListener object. This way we can pass an object of BaseNotification to the activity and let the activity pass itself to it. So we won’t cast to Payment or Ticket notification, we just call BaseNotification.handleNotification(this) method in the activity and escape the casting problem. Each subclass of BaseNotification decides how and when to call the notification listener with the parsed data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>public <span style="color:#66d9ef">class</span> TicketNotification <span style="color:#66d9ef">extends</span> BaseNotification implements Serializable {
+</span></span><span style="display:flex;"><span>    private boolean authenticatedMessage;
+</span></span><span style="display:flex;"><span>    private <span style="color:#a6e22e">String</span> ticketId, messageId;
+</span></span><span style="display:flex;"><span>    private <span style="color:#a6e22e">int</span> unreadMessageCount;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>    public boolean handleNotification(NotificationListener notificationListener) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> notificationListener<span style="color:#f92672">.</span>handleTicketNotification(this);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">@</span>Override
+</span></span><span style="display:flex;"><span>    public void onNotificationNotHandled(UnhandledNotificationListener onNotificationNotHandled, Intent intent) {
+</span></span><span style="display:flex;"><span>        onNotificationNotHandled<span style="color:#f92672">.</span>onTicketNotHandled(this, intent);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="close-notifications-which-were-not-clicked">Close notifications which were not clicked<a hidden class="anchor" aria-hidden="true" href="#close-notifications-which-were-not-clicked">#</a></h3>
+<p>So if a user opens a screen for which he sees a notification, but doesn’t tap on it, the notification should disappear. The simple solution was to set a notificationId the same as the ticketId, so when the user opens the TicketDetails screen for a certain ticket, the screen calls notificationManager.cancel(ticketId) and the notification for this ticket is removed. Simple as that.</p>
+<h3 id="remove-notifications-when-app-is-closed">Remove notifications when app is closed<a hidden class="anchor" aria-hidden="true" href="#remove-notifications-when-app-is-closed">#</a></h3>
+<p>To do that you need to register an <a href="https://developer.android.com/reference/android/app/Application.ActivityLifecycleCallbacks.html">ActivityLifecycleCallback</a>. All you need to do is call: registerActivityLifecycleCallbacks(new LogoutLifecycleListener(this)); in your custom application class. So then:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>public class LogoutLifecycleListener implements Application.ActivityLifecycleCallbacks {
+</span></span><span style="display:flex;"><span>    @Override
+</span></span><span style="display:flex;"><span>    public void onActivityPaused(Activity activity) {
+</span></span><span style="display:flex;"><span>         NotificationManager nMgr = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+</span></span><span style="display:flex;"><span>         nMgr.cancelAll();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="closing-words">Closing words<a hidden class="anchor" aria-hidden="true" href="#closing-words">#</a></h2>
+<p>In the current project I work on, we use inheritance a lot, which I really don’t like. But I think the approach we took to handling notifications, in this case, does its job really well. You can easily extend certain methods and now work with the notification yourself. I would prefer to use composition and an approach closer to OOP so I can delegate most of the work to the objects rather than to use inheritance, but this is how the touch framework in Android works and it does it’s job well.</p>
+<p>I would be very happy if someone shares an alternative to our approach. I hope that this article helped someone to handle notifications in their project. Cheers!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/architecture/">Architecture</a></li>
+    </ul>
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Sample architecture to handle notifications in Android on x"
+            href="https://x.com/intent/tweet/?text=Sample%20architecture%20to%20handle%20notifications%20in%20Android&amp;url=http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f&amp;hashtags=architecture">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Sample architecture to handle notifications in Android on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f&amp;title=Sample%20architecture%20to%20handle%20notifications%20in%20Android&amp;summary=Sample%20architecture%20to%20handle%20notifications%20in%20Android&amp;source=http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Sample architecture to handle notifications in Android on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f&title=Sample%20architecture%20to%20handle%20notifications%20in%20Android">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Sample architecture to handle notifications in Android on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Sample architecture to handle notifications in Android on whatsapp"
+            href="https://api.whatsapp.com/send?text=Sample%20architecture%20to%20handle%20notifications%20in%20Android%20-%20http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Sample architecture to handle notifications in Android on telegram"
+            href="https://telegram.me/share/url?text=Sample%20architecture%20to%20handle%20notifications%20in%20Android&amp;url=http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Sample architecture to handle notifications in Android on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Sample%20architecture%20to%20handle%20notifications%20in%20Android&u=http%3a%2f%2flocalhost%3a1313%2f2020%2f05%2f04%2fsample-architecture-to-handle-notifications-in-android%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+
+
+
+
+
+
+  
+  
+
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

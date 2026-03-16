@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Axios on Make Things Happen</title>
+    <link>http://localhost:1313/tags/axios/</link>
+    <description>Recent content in Axios on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 28 May 2020 06:16:09 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/axios/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Parse windows-1251 (cyrillic) request in axios</title>
+      <link>http://localhost:1313/2020/05/28/parse-windows-1251-cyrillic-request-in-axios/</link>
+      <pubDate>Thu, 28 May 2020 06:16:09 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=269</guid> 
+      <description>I am using &lt;a href=&#34;https://github.com/axios/axios&#34;&gt;axios&lt;/a&gt; to scrape some data from some websites. Currently, I hit the case where the encoding of the website is in windows-1251 and the response I got from the request wasn&amp;rsquo;t readable at all.</description>
+    </item>
+  </channel>
+</rss>

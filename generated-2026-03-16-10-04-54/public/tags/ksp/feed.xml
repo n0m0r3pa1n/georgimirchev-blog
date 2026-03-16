@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ksp on Make Things Happen</title>
+    <link>http://localhost:1313/tags/ksp/</link>
+    <description>Recent content in Ksp on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 14 Jan 2024 14:37:25 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ksp/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KAPT to KSP migration and Hilt</title>
+      <link>http://localhost:1313/2024/01/14/kapt-to-ksp-migration-and-hilt/</link>
+      <pubDate>Sun, 14 Jan 2024 14:37:25 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=1670</guid> 
+      <description>There is an issue with Dagger / Hilt when you migrate your project from the &lt;a href=&#34;https://kotlinlang.org/docs/kapt.html&#34;&gt;KAPT&lt;/a&gt; to &lt;a href=&#34;https://kotlinlang.org/docs/ksp-overview.html&#34;&gt;KSP&lt;/a&gt; code generation plugin.</description>
+    </item>
+  </channel>
+</rss>

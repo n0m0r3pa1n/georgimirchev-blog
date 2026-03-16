@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Grub on Make Things Happen</title>
+    <link>http://localhost:1313/tags/grub/</link>
+    <description>Recent content in Grub on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 09:31:42 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/grub/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing Grub fails on Ubuntu 16.04</title>
+      <link>http://localhost:1313/2020/05/04/installing-grub-fails-on-ubuntu-16-04/</link>
+      <pubDate>Mon, 04 May 2020 09:31:42 +0000</pubDate>
+       <guid isPermaLink="false">http://georgimirchev.com/?p=78</guid> 
+      <description>&lt;p&gt;I got this nasty error when it came to having a fresh install of Ubuntu 16.04. It says that GRUB cannot be installed on /target device. In order to fix this you need to:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a partition around 300 mbs&lt;/li&gt;
+&lt;li&gt;Use the FAT32 format and target it as EFI partition&lt;/li&gt;
+&lt;li&gt;Choose that the GRUB installer should be installed on this 300 mbs partition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Then the installation should finish succesfully without any errors.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

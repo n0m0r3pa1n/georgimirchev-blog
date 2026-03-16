@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Architecture-Components on Make Things Happen</title>
+    <link>http://localhost:1313/tags/architecture-components/</link>
+    <description>Recent content in Architecture-Components on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 04 May 2020 07:30:30 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/architecture-components/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RxJava &amp;amp; LiveData combined error handling</title>
+      <link>http://localhost:1313/2020/05/04/example-post/</link>
+      <pubDate>Mon, 04 May 2020 07:30:30 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchevcom.wordpress.com/?p=11</guid> 
+      <description>Using RxJava with the architecture components from Google in the &lt;a href=&#34;https://web.archive.org/web/20191005041357/https://github.com/n0m0r3pa1n/bulgarian_history_revisited&#34;&gt;latest project&lt;/a&gt; that I was working on, it made me think how does error handling fit with the LiveData and can you keep the RxJava error handling which I find quite nice.</description>
+    </item>
+  </channel>
+</rss>

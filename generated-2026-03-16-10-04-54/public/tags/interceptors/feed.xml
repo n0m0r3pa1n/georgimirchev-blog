@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Interceptors on Make Things Happen</title>
+    <link>http://localhost:1313/tags/interceptors/</link>
+    <description>Recent content in Interceptors on Make Things Happen</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 12 Apr 2024 08:13:40 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/interceptors/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Throwing anything other than IOException in the OkHttp interceptor will crash your app</title>
+      <link>http://localhost:1313/2024/04/12/throwing-anything-other-than-ioexception-will-crash-your-app-in-the-okhttp-interceptor/</link>
+      <pubDate>Fri, 12 Apr 2024 08:13:40 +0000</pubDate>
+       <guid isPermaLink="false">https://georgimirchev.com/?p=1967</guid> 
+      <description>&lt;p&gt;One thing to note, maybe you don&amp;rsquo;t know about it, is that OkHttp interceptors work with IOException. So if you decide to implement some kind of a retry mechanism - to refresh a token when you get a forbidden response code, to retry a request, or something else, keep in mind that if you throw anything different than IOException or a subclass of it, like InvalidStateException, your app will crash and the exception will not even reach the try-catch block of your code.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
