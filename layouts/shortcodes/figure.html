@@ -1,0 +1,17 @@
+{{- $src := .Get "src" -}}
+{{- /* Strip WordPress resize query params like ?w=1024 */ -}}
+{{- $src = index (split $src "?") 0 -}}
+{{- /* Apply relURL to absolute paths so subdirectory deployments work */ -}}
+{{- if and (not (hasPrefix $src "http")) (hasPrefix $src "/") -}}
+  {{- $src = relURL $src -}}
+{{- end -}}
+<figure>
+  <img src="{{ $src }}"
+    {{- with .Get "alt" }} alt="{{ . }}"{{ end }}
+    {{- with .Get "width" }} width="{{ . }}"{{ end }}
+    {{- with .Get "height" }} height="{{ . }}"{{ end }}
+    {{- with .Get "class" }} class="{{ . }}"{{ end }}
+    style="max-width:100%; height:auto;"
+  >
+  {{- with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>
