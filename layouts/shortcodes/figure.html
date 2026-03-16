@@ -1,9 +1,9 @@
 {{- $src := .Get "src" -}}
 {{- /* Strip WordPress resize query params like ?w=1024 */ -}}
 {{- $src = index (split $src "?") 0 -}}
-{{- /* Apply relURL to absolute paths so subdirectory deployments work */ -}}
-{{- if and (not (hasPrefix $src "http")) (hasPrefix $src "/") -}}
-  {{- $src = relURL $src -}}
+{{- /* Apply relURL so subdirectory deployments get the correct base path */ -}}
+{{- if not (hasPrefix $src "http") -}}
+  {{- $src = $src | strings.TrimPrefix "/" | relURL -}}
 {{- end -}}
 <figure>
   <img src="{{ $src }}"
