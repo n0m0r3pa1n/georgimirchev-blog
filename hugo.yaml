@@ -2,6 +2,7 @@ baseURL: https://georgimirchev.com
 languageCode: en
 title: Make Things Happen
 theme: PaperMod
+googleAnalytics: G-54KDM2FVZB
 taxonomies:
   category: categories
   tag: tags
